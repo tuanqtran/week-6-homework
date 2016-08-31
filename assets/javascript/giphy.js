@@ -1,6 +1,6 @@
 $("#addButton").on("click", function(){
 	var newGifButton = $("<button>")
-		.attr("data-random", $("#buttonContent").val().trim())
+		.attr("data-wordtobesearched", $("#buttonContent").val().trim())
 		.html($("#buttonContent").val().trim());
 
 	$("#gifButtonContainer").append(newGifButton);
@@ -11,7 +11,7 @@ var i = 0;
 $("#gifButtonContainer button").on("click", function(){
 	i++;
 	console.log(this);
-	var searchTermInfo = $(this).data('random');
+	var searchTermInfo = $(this).data('wordtobesearched');
 	var searchTerm = $("<option>");
 	searchTerm.append(searchTermInfo)
 		.attr("value", "gifOptionsToPickFrom option-" + i)
