@@ -1,11 +1,22 @@
-var i = 3;
 $("#addButton").on("click", function(){
-	i++;
-	var newGifButton = $("<option>")
-		.attr("value", "gifOptionsToPickFrom option-" + i)
+	var newGifButton = $("<button>")
+		.attr("data-wordtobesearched", $("#buttonContent").val().trim())
 		.html($("#buttonContent").val().trim());
 
-	$("#gifOptions").append(newGifButton);
+	$("#gifButtonContainer").append(newGifButton);
+
+});
+
+var i = 0;
+$("#gifButtonContainer").on("click", 'button', function(){
+	i++;
+	console.log(this);
+	var searchTermInfo = $(this).data('wordtobesearched');
+	var searchTerm = $("<option>");
+	searchTerm.append(searchTermInfo)
+		.attr("value", "gifOptionsToPickFrom option-" + i)
+	$("#gifOptions").append(searchTerm);
+
 });
 
 var searchButton = $("#searchButton");
@@ -22,17 +33,13 @@ searchButton.on("click", function(){
 		var results = response.data;
 
 		for (var j=0; j < results.length; j++){
-			var gifDiv = $("<div>")
-				.addClass("gifContentBox");
-			var gifCoverBox = $("<div>")
-				.addClass("coverBox");
+			var gifDiv = $("<div>");
 			var gifImage = $("<img>")
 				.attr("src", results[j].images.fixed_height.url)
 				.attr("data-animate", results[j].images.fixed_height.url)
 				.attr("data-still", results[j].images.fixed_height_still.url)
 				.attr("data-state", "animate");
 
-			gifDiv.append(gifCoverBox);
 			gifDiv.append(gifImage);
 
 			$("#placeForClickedGifs").prepend(gifDiv);
@@ -59,6 +66,8 @@ searchButton.on("click", function(){
 	var resetButton = $("#resetButton");
 
 	});
+
+	return false;
 
 });
 

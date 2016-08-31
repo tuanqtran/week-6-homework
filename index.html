@@ -7,35 +7,41 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-	<div id="header">GifTastic</div>
-	<div id="gifButtonContainer">
-		<button data-wordToBeSearched="dog">dog</button>
-		<button data-wordToBeSearched="bird">bird</button>
-		<button data-wordToBeSearched="fish">fish</button>
+	<div id="contentContainer">
+		<div id="header">GifTastic</div>
+
+		<form>
+			<h2 id="titleHeader">Add a Gif: <input type="text" for="addButton" id="buttonContent"> <button type="button" id="addButton">Add Item</button></h2>
+			
+			<section id="gifChoiceContainer">
+				<h2>Select your choice. </h2>
+				<select id="gifOptions">
+					<option value="gifOptionsToPickFrom option-1">dog</option>
+					<option value="gifOptionsToPickFrom option-2">bird</option>
+					<option value="gifOptionsToPickFrom option-3">fish</option>
+				</select>
+			</section>
+
+			<section id="labelContainer">
+				<label for="limit">How many: </label>
+				<select id="limit">
+					<option value=1>1</option>
+					<option value=5>5</option>
+					<option value=10>10</option>
+					<option value=25 selected>25</option>
+					<option value=50>50</option>
+					<option value=100>100</option>
+				</select>
+			</section>
+
+			<section id="buttonContainer">
+				<button type="button" id="searchButton">Search</button>
+				<button type="button" id="resetButton">Clear Gifs</button>
+			</section>
+		</form>
 	</div>
-
-	<form>
-		<h2>Add Gif Button: <input type="text" for="addButton" id="buttonContent"> <button type="button" id="addButton">Add Item</button></h2>
-		
-		<select id="gifOptions"></select>
-
-		<label for="limit">How many: </label>
-		<select id="limit">
-			<option value=1>1</option>
-			<option value=5>5</option>
-			<option value=10>10</option>
-			<option value=25 selected>25</option>
-			<option value=50>50</option>
-			<option value=100>100</option>
-		</select>
-
-		<button type="button" id="searchButton">Search</button>
-		<button type="button" id="resetButton">Clear Gifs</button>
-
-	</form>
-
+	
 	<div id="placeForClickedGifs"></div>
-
 
 
 
