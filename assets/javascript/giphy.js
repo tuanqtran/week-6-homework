@@ -4,16 +4,19 @@ var gifChoices = ["dog", "bird", "fish"];
 
 function addGifButton(){
 	i++;
+	$("#gifOptions option").attr("selected", false);
 	var gifOption = $("<option>")
 		.attr("value", "gifOptionsToPickFrom")
 		.attr("id", "option-" + i)
-		.html($("#buttonContent").val().trim());
-
+		.html($("#buttonContent").val().trim())
+		.attr("selected", "selected");
 	gifChoices.push(gifOption.text());
 	$("#gifOptions").append(gifOption);
 
 	console.log($("#buttonContent").val() + " was added to the list.");
+
 }
+
 
 var i = 3;
 $("#addButton").on("click", function(){
@@ -26,7 +29,6 @@ $("#addButton").on("click", function(){
 			addGifButton();
     	}
     }
-
 });
 
 $("#buttonContent").keypress(function(event) {
@@ -71,8 +73,8 @@ searchButton.on("click", function(){
 			gifDiv.append(gifImage);
 
 			$("#placeForClickedGifs").prepend(gifDiv);
-
 		}
+
 
 		$("#placeForClickedGifs img").on("click", function(){
 			var state = $(this).attr("data-state");
@@ -91,9 +93,9 @@ searchButton.on("click", function(){
 var resetButton = $("#resetButton");
 
 resetButton.on("click", function(){
+	i = 0;
 	$("#gifOptions").empty();
 	$("#placeForClickedGifs").empty();
 	gifChoices = [];
-	i = 0;
 });
 
