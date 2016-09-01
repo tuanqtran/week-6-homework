@@ -1,0 +1,192 @@
+/*
+================================================
+================================================
+
+          Start of the GifTastic CSS.
+           Media Screen width 980px.
+
+================================================
+================================================
+*/
+@media screen and (max-width:980px){
+
+	#contentContainer{
+		width: 350px;
+	}
+
+	#header{
+		font-size: 4em;
+	}
+	
+	#buttonContent{
+		width: 100px;
+	}
+
+	#gifChoiceContainer h2{
+		margin-left: 40px;
+	}
+
+	#labelContainer{
+		margin-left: 100px;
+	}
+
+	#searchButton{
+		margin-left: 75px;
+		clear: both;
+	}
+
+	#searchButton, #resetButton{
+		margin-top: 10px;
+		float: left;
+	}
+
+	#placeForClickedGifs{
+		margin-left: 350px;
+	}
+	
+	.gifContentBox{
+		margin-left: 12.5px;
+	}
+
+	.gifContentBox img:hover{
+		-webkit-transform: scale(1.25);
+		padding: 0px;
+
+	}
+
+}
+
+/*
+================================================
+================================================
+
+          End of the GifTastic CSS.
+          Media Screen width 980px.
+
+================================================
+================================================
+
+***    ***    ***              ***    ***    ***
+
+================================================
+================================================
+
+         Start of the GifTastic CSS.
+          Media Screen width 768px.
+
+================================================
+================================================
+*/
+
+@media screen and (max-width:768px){
+
+	#contentContainer{
+		width: 325px;
+	}
+	
+	#header{
+		font-size: 3.75em;
+	}	
+
+
+	#gifChoiceContainer h2{
+		margin-left: 25px;
+	}
+
+	#labelContainer{
+		margin-left: 85px;
+	}
+
+	#searchButton{
+		margin-left: 60px;
+	}
+
+	.gifContentBox{
+		width: 190px;
+		height: 190px;
+		margin-left: -10px;
+	}
+
+	.gifContentBox img{
+		width: 165px;
+		height: 165px;		
+	}
+
+	.coverBox{
+		width: 190px;
+		height: 190px;		
+	}
+
+}
+
+/*
+================================================
+================================================
+
+          End of the GifTastic CSS.
+          Media Screen width 768px.
+
+================================================
+================================================
+
+***    ***    ***              ***    ***    ***
+
+================================================
+================================================
+
+         Start of the GifTastic CSS.
+          Media Screen width 640px.
+
+================================================
+================================================
+*/
+@media screen and (max-width: 640px){
+
+	#contentContainer{
+		width: 300px;
+	}
+
+	#gifChoiceContainer h2{
+		margin-left: 15px;
+	}
+
+	#labelContainer{
+		margin-left: 75px;
+	}
+
+	#searchButton{
+		margin-left: 50px;
+	}
+
+	.gifContentBox{
+		width: 290px;
+		height: 290px;
+		margin-left: -40px;
+	}
+
+	.gifContentBox img{
+		width: 265px;
+		height: 265px;		
+	}
+
+	.coverBox{
+		width: 290px;
+		height: 290px;		
+	}	
+
+	.gifContentBox img:hover{
+		-webkit-transform: scale(1.1);
+	}
+
+}
+
+/*
+================================================
+================================================
+
+          End of the GifTastic CSS.
+          Media Screen width 640px.
+
+================================================
+================================================
+*/

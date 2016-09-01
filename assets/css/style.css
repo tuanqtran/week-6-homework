@@ -1,134 +1,308 @@
+/*
+================================================
+================================================
+
+          Start of the GifTastic CSS.
+
+================================================
+================================================
+
+***    ***    ***              ***    ***    ***
+
+================================================
+	   Provides a black color background
+================================================
+*/
+
 body{
 	background-color: black;
 }
-#header{
-	font-family: 'Trocchi', serif;
-	font-size: 5em;
-	text-shadow: 5px 5px 1px black;
-}
 
+/*
+================================================
+================================================
+
+         Start of the contentContainer.
+
+================================================
+================================================
+
+***    ***    ***              ***    ***    ***
+
+================================================
+   Provides a orange color background to the
+   container with a fixed position and width
+	     on the left side of the page.
+================================================
+*/
 #contentContainer{
 	background-color: orange;
 	color: white;
 	width: 450px;
 	height: 100%;
-	position: fixed;
 	margin-top: -5px;
+	position: fixed;
 }
 
+/*
+================================================
+     Set font/size, centered text, provided
+   shadow and pushed the contents below down.
+================================================
+*/
 #header{
+	font-family: 'Trocchi', serif;
+	font-size: 5em;
+	text-shadow: 5px 5px 1px black;
 	margin-top: 300px;
 	text-align: center;
 }
 
+/*
+================================================
+================================================
+
+	    Start of the gif list selectors
+	         modifications section.
+
+================================================
+================================================
+*/
 #titleHeader, #gifChoiceContainer h2{
 	font-family: 'Trocchi', serif;
 	font-size: 1.2em;
-	margin-top: 10px;
 	text-shadow: 0px 0px 5px black, 0px 0px 10px black;	
+	margin-top: 10px;
 }
 
 #titleHeader{
 	text-align: center;
 }
 
+
 #gifChoiceContainer h2{
-	float: left;
 	margin-left: 10px;
+	float: left;
 
 }
 
+/*
+================================================
+    Given the gif selector list a set width.
+================================================
+*/
 #gifOptions{
 	width: 125px;
-	float: left;
 	margin-top: 10px;
+	float: left;
 	border-radius: 5px;
 }
+
+/*
+================================================
+================================================
+
+	      End of the gif list selectors
+	         modifications section.
+
+================================================
+================================================
+
+***    ***    ***              ***    ***    ***
+
+================================================
+================================================
+
+	   Start of the label list selectors
+	         modifications section.
+
+================================================
+================================================
+*/
 
 #labelContainer{
 	font-family: 'Trocchi', serif;
 	font-size: 1.2em;
+	text-shadow: 0px 0px 5px black, 0px 0px 10px black;	
 	margin-top: 10px;
 	margin-left: 5px;
 	float: left;
-	text-shadow: 0px 0px 5px black, 0px 0px 10px black;	
 }
 
 #limit{
 	border-radius: 5px;
 }
 
+/*
+================================================
+================================================
 
-#placeForClickedGifs{
-	margin-left: 450px;
-	margin-top: 5px;
-}
+	    End of the label list selectors
+	         modifications section.
 
+================================================
+================================================
+
+***    ***    ***              ***    ***    ***
+
+================================================
+================================================
+
+   Start of the button modifications section.
+
+================================================
+================================================
+*/
 #buttonContainer{
 	text-align: center;
 	margin-top: 40px;
 }
 
+/*
+================================================
+  Given the text/background color a white look
+   and provided a two blurred black shadows
+               behind the text.
+================================================
+*/
 #searchButton, #resetButton, #addButton{
+	text-shadow: 0px 0px 5px black, 0px 0px 10px black;
+	background-color: white;
+	color: white;
 	border-radius: 7.5px;
 	width: 100px;
 	height: 25px;
-	background-color: white;
-	color: white;
-	text-shadow: 0px 0px 5px black, 0px 0px 10px black;
 }
 
-.gifContentBox{
-    /*display: block;*/
-    margin-left: 7.5px;
-    margin-right: 7.5px;
-    margin-bottom: 15px;
-	float: left;
+/*
+================================================
+================================================
+
+    End of the button modifications section.
+
+================================================
+================================================
+
+***    ***    ***              ***    ***    ***
+
+================================================
+================================================
+
+           End of the contentContainer.
+
+================================================
+================================================
+
+***    ***    ***              ***    ***    ***
+
+================================================
+================================================
+
+      Start of the Gifs image modifications.
+
+================================================
+================================================
+
+***    ***    ***              ***    ***    ***
+
+================================================
+    Pushed the gifs container to the right
+        of the contentContainer div.
+================================================
+*/
+#placeForClickedGifs{
+	margin-left: 450px;
+	margin-top: 5px;
+}
+
+/*
+================================================
+  Provides a opacity black cover box over each
+     image which is later hovered to reveal
+           the normal gif coloring.
+================================================
+*/
+.coverBox{
+	background-color: black;
+	opacity: .4;
+	-moz-transition: all .125s;
+	-webkit-transition: all .125s;
+	transition: all .125s;
 	width: 275px;
 	height: 275px;
-	vertical-align: middle;
+    margin: auto;
+    display: block;
+	position: absolute;
+}
+
+.coverBox:hover{
+	-webkit-transform: scale(0);
+	opacity: 0;
+}
+
+/*
+================================================
+       Centered the gif boxed, provided a
+   orange glow, and given a dashed line within
+              the box container.
+================================================
+*/
+.gifContentBox{
 	outline: 2px dashed grey;
 	outline-offset: -7.5px;
 	border-radius: 5px;
 	-webkit-box-shadow: 0px 0px 10px orange;
 	-moz-box-shadow: 0px 0px 10px orange;
 	box-shadow: 0px 0px 10px orange;
+	width: 275px;
+	height: 275px;
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+    margin-bottom: 15px;
+	vertical-align: middle;
+	float: left;
 }
 
+/*
+================================================
+   Centered the gif within the gifContentBox
+    above and provided a hover effect which
+  enlarges the image and provides a white glow.
+================================================
+*/
 .gifContentBox img{
-    margin: auto;
-    display: block;
-    margin-top: 12.5px;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	transition: all .5s ease;
 	width: 250px;
 	height: 250px;
-	-moz-transition: all .5s ease;
-	-webkit-transition: all .5s ease;
-	transition: all .5s ease;
+    margin: auto;
+    margin-top: 12.5px;
+    display: block;
 }
 
 .gifContentBox img:hover{
-	-webkit-transform:scale(1.5);
+	-webkit-transform: scale(1.5);
 	-webkit-box-shadow:0px 0px 30px white;
-	padding: 10px;
 	position: relative;
 	z-index: 10;
 }
 
-.coverBox{
-    margin: auto;
-    display: block;
-	width: 275px;
-	height: 275px;
-	background-color: black;
-	opacity: .4;
-	position: absolute;
-	-moz-transition: all 0s;
-	-webkit-transition: all 0s;
-	transition: all 0s;
-}
+/*
+================================================
+================================================
 
-.coverBox:hover{
-	height: 0%;
-	width: 0%;
-	opacity: 0;
-}
+       End of the Gifs image modifications.
+
+================================================
+================================================
+
+***    ***    ***              ***    ***    ***
+
+================================================
+================================================
+
+           End of the GifTastic CSS.
+
+================================================
+================================================

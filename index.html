@@ -3,26 +3,40 @@
 <head>
 	<meta charset="UTF-8">
 	<title>GifTastic</title>
+	<!-- Reference to css reset sheet. -->	
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<!-- Reference to main css styling sheet. -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- Reference to Media Queries css styling sheet. -->	
+	<link rel="stylesheet" type="text/css" href="assets/css/sizing.css">
+	<!-- Ensures the page is mobile responsive. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<!-- Start of the contentContainer. -->
 	<div id="contentContainer">
+
+		<!-- Header Title Text. -->
 		<div id="header">GifTastic</div>
 
+		<!-- Beginning of the entire gif form. -->
 		<form>
+			<!-- Embedded h2 text, text input box and a add button to place content within the gifOptions later on. -->
 			<h2 id="titleHeader">Add a Gif: <input type="text" for="addButton" id="buttonContent"> <button type="button" id="addButton">Add Item</button></h2>
-			
+			<!-- Beginning of the gifChoiceContainer section. -->
 			<section id="gifChoiceContainer">
 				<h2>Select your choice. </h2>
+				<!-- Contains the gif options in choice to pick from. -->
 				<select id="gifOptions">
 					<option value="gifOptionsToPickFrom" id="option-1">dog</option>
 					<option value="gifOptionsToPickFrom" id="option-2">bird</option>
 					<option value="gifOptionsToPickFrom" id="option-3">fish</option>
 				</select>
-			</section>
+			</section> <!-- End of the gifChoiceContainer section -->
 
+			<!-- Beginning of the labelContainer section. -->
 			<section id="labelContainer">
+				<!-- Contains the set value to provide how many gifs to be shown. -->
 				<label for="limit">How many: </label>
 				<select id="limit">
 					<option value=1>1</option>
@@ -32,18 +46,23 @@
 					<option value=50>50</option>
 					<option value=100>100</option>
 				</select>
-			</section>
+			</section> <!-- End of the labelContainer section -->
 
+			<!-- Beginning of the buttonContainer section. -->
 			<section id="buttonContainer">
 				<button type="button" id="searchButton">Search</button>
 				<button type="button" id="resetButton">Clear Gifs</button>
-			</section>
-		</form>
+			</section> <!-- End of the buttonContainer section -->
+		</form> <!-- End of the entire gif form. -->
+
 	</div>
 	
-	<div id="placeForClickedGifs"></div>
+	<!-- Beginning of the placeForClickedGifs div which will contain added gifs. -->
+	<div id="placeForClickedGifs"></div> <!-- End of the placeForClickedGifs div -->
 
+	<!-- Reference to jquery version 2.2.3. -->
 	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+	<!-- Reference to giphy javascript sheet. -->
 	<script type="text/javascript" src="assets/javascript/giphy.js"></script>	
 </body>
 </html>
