@@ -1,11 +1,46 @@
-var i = 3;
-$("#addButton").on("click", function(){
+var gifChoices = ["dog", "bird", "fish"];
+
+// console.log(gifChoices[0]);
+
+function addGifButton(){
 	i++;
-	var newGifButton = $("<option>")
-		.attr("value", "gifOptionsToPickFrom option-" + i)
+	var gifOption = $("<option>")
+		.attr("value", "gifOptionsToPickFrom")
+		.attr("id", "option-" + i)
 		.html($("#buttonContent").val().trim());
 
-	$("#gifOptions").append(newGifButton);
+	gifChoices.push(gifOption.text());
+	$("#gifOptions").append(gifOption);
+
+	console.log($("#buttonContent").val() + " was added to the list.");
+}
+
+var i = 3;
+$("#addButton").on("click", function(){
+	if ($("#buttonContent").val().trim() == ""){
+		console.log("Not a valid text option.");
+    }else{
+    	if (gifChoices.indexOf($("#buttonContent").val().trim()) != -1){
+    		console.log($("#buttonContent").val() + " was used already added.");
+    	}else{
+			addGifButton();
+    	}
+    }
+
+});
+
+$("#buttonContent").keypress(function(event) {
+    if ($("#buttonContent").val().trim() == ""){
+ 		console.log("Not a valid text option.");  
+
+    }else if (event.which == 13) {
+    	if (gifChoices.indexOf($("#buttonContent").val().trim()) != -1){
+	        event.preventDefault();
+    	}else{
+	        event.preventDefault();
+	        addGifButton();
+	    }
+    }
 });
 
 var searchButton = $("#searchButton");
@@ -27,21 +62,16 @@ searchButton.on("click", function(){
 			var gifCoverBox = $("<div>")
 				.addClass("coverBox");
 			var gifImage = $("<img>")
-				.attr("src", results[j].images.fixed_height.url)
+				.attr("src", results[j].images.fixed_height_still.url)
 				.attr("data-animate", results[j].images.fixed_height.url)
 				.attr("data-still", results[j].images.fixed_height_still.url)
-				.attr("data-state", "animate");
+				.attr("data-state", "still");
 
 			gifDiv.append(gifCoverBox);
 			gifDiv.append(gifImage);
 
 			$("#placeForClickedGifs").prepend(gifDiv);
 
-
-			// $("#placeForClickedGifs").html(results.data.url);
-
-			// console.log(queryURL);
-			// console.log(response);
 		}
 
 		$("#placeForClickedGifs img").on("click", function(){
@@ -55,10 +85,15 @@ searchButton.on("click", function(){
 				$(this).attr("data-state", "still");
 			}
 		});
-
-	var resetButton = $("#resetButton");
-
 	});
+});
 
+var resetButton = $("#resetButton");
+
+resetButton.on("click", function(){
+	$("#gifOptions").empty();
+	$("#placeForClickedGifs").empty();
+	gifChoices = [];
+	i = 0;
 });
 
