@@ -1,4 +1,4 @@
-/*
+
 ================================================
 ================================================
 
@@ -265,12 +265,16 @@ body{
 
 /*
 ================================================
-   Centered the gif within the gifContentBox
-    above and provided a hover effect which
-  enlarges the image and provides a white glow.
+	Provides a set width and height for the
+   image contained within the imageContainer.
 ================================================
 */
-.gifContentBox img{
+.imageContainer img{
+	width: 250px;
+	height: 250px;
+}
+
+.imageContainer{
 	-webkit-transition: all .5s ease;
 	-moz-transition: all .5s ease;
 	transition: all .5s ease;
@@ -278,16 +282,40 @@ body{
 	height: 250px;
     margin: auto;
     margin-top: 12.5px;
-    display: block;
+    display: block;	
+    position: relative;
 }
 
-.gifContentBox img:hover{
+/*
+================================================
+  Applies a hover effect on the imageContainer
+         which will enlarge the image
+           and provide a white glow.
+================================================
+*/
+.imageContainer:hover{
 	-webkit-transform: scale(1.5);
 	-webkit-box-shadow:0px 0px 30px white;
 	position: relative;
 	z-index: 10;
 }
 
+/*
+================================================
+     Rating text located at the bottom right
+         of the gif image with a white
+             font and orange glow.
+================================================
+*/
+.ratingFont{
+	font-family: 'Trocchi', serif;
+	color: white;
+	text-shadow: 0px 0px 5px orange, 0px 0px 10px orange;	
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	z-index: 10;
+}
 /*
 ================================================
 ================================================

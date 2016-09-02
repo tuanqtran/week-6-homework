@@ -48,10 +48,8 @@
 		margin-left: 12.5px;
 	}
 
-	.gifContentBox img:hover{
+	.imageContainer:hover{
 		-webkit-transform: scale(1.25);
-		padding: 0px;
-
 	}
 
 }
@@ -117,6 +115,11 @@
 		height: 190px;		
 	}
 
+	.imageContainer{
+		width: 165px;
+		height: 165px;			
+	}
+
 }
 
 /*
@@ -174,7 +177,12 @@
 		height: 290px;		
 	}	
 
-	.gifContentBox img:hover{
+	.imageContainer{
+		width: 265px;
+		height: 265px;	
+	}
+	
+	.imageContainer:hover{
 		-webkit-transform: scale(1.1);
 	}
 

@@ -88,29 +88,39 @@ searchButton.on("click", function(){
 	})
 	// Stores all of the retrieved data inside of an object called "response".
 	.done(function(response) {
-		// Set the varaiable results equal to api object location response.data.
+		// Set the variable results equal to api object location response.data.
 		var results = response.data;
 		// This for loop will run until the var j not less than the results length.
 		for (var j=0; j < results.length; j++){
-			// Set the varaiable gifDiv equal a new div and add a new class called gifContentBox.
+			var gifRating = $("<p>")
+				.addClass("ratingFont")
+				.text("Rating: " + results[j].rating);
+			// Set the variable gifDiv equal a new div and add a new class called gifContentBox.
 			var gifDiv = $("<div>")
 				.addClass("gifContentBox");
-			// Set the varaiable gifDiv equal a new div and add a new class called coverBox.
+			// Set the variable gifDiv equal a new div and add a new class called coverBox.
 			var gifCoverBox = $("<div>")
 				.addClass("coverBox");
-			// Set the varaiable gifImage equal a new img.			
+			// Set the variable gifImageContainer equal to a div and add a new class called imageContainer.
+			var gifImageContainer = $("<div>")
+				.addClass("imageContainer");
+
+			// Set the variable gifImage equal a new img.			
 			var gifImage = $("<img>")
 				// Adds an attr src equal to the current results[j]. Which will provide a still gif.
 				.attr("src", results[j].images.fixed_height_still.url)
-				// Adds an attr data-animate equal to the current results[j]. Which will provide a playing gif.
-				.attr("data-animate", results[j].images.fixed_height.url)
-				// Adds an attr data-still equal to the current results[j]. Which will provide a pause gif.
-				.attr("data-still", results[j].images.fixed_height_still.url)
+				// Adds an data animate equal to the current results[j]. Which will provide a playing gif.
+				.data("animate", results[j].images.fixed_height.url)
+				// Adds an data still equal to the current results[j]. Which will provide a pause gif.
+				.data("still", results[j].images.fixed_height_still.url)
 				// Adds an attr data-state equal to still which will change to either animated or still upon click.
 				.attr("data-state", "still");
-			// Appends both the gifCOverBox and gifImage into gifDiv located on line 96.
+			// Appends both the gifCoverBox and gifImageContainer into gifDiv located on line 99.
+			// Also appends both the gifImage and gifRating into the gifIMageContainer div located on line 105.
 			gifDiv.append(gifCoverBox);
-			gifDiv.append(gifImage);
+			gifImageContainer.append(gifImage);
+			gifImageContainer.append(gifRating);
+			gifDiv.append(gifImageContainer);
 			// Prepends the gifDiv to the id placeForClickedGifs located on the html page.
 			$("#placeForClickedGifs").prepend(gifDiv);
 		}
