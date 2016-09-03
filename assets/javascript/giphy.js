@@ -7,20 +7,25 @@
 /////////////////////////////////////////////////////////////////////////////////
 
 // Contains the array of gifChoices to choose from.
-var gifChoices = ["dog", "bird", "fish"];
+var gifChoices = ["Dog", "Bird", "Fish"];
 
 // Beginning of the addGifButton function.
 function addGifButton(){
 	// Increments the value i.
 	i++;
+	// Creates a new variable that's equal to the value of the user input.
+	// The user input will be trimmed, capitalize of the first letter of each word and the rest lowercased.
+	var userButtonInput = $("#buttonContent").val().trim().toLowerCase().replace(/\b[a-z]/g, function(letter) {
+		return letter.toUpperCase();
+	})
 	// Removes any selected options from the gifOptions ID.
 	$("#gifOptions option").attr("selected", false);
 	// Creates a new "<option>" which will contain a special value/ID.
 	var gifOption = $("<option>")
 		.attr("value", "gifOptionsToPickFrom")
 		.attr("id", "option-" + i)
-		// Ensures that the text inputted has no unncessary spaces and is lower cased.
-		.html($("#buttonContent").val().trim().toLowerCase())
+		// Embeds the user input into the gif option list of choices.
+		.html(userButtonInput)
 		// The newly added "<option>" will be shown selected on the page.
 		.attr("selected", "selected");
 	// Pushes the gifOption text into the gifChoices array provided on line 10.
@@ -28,7 +33,8 @@ function addGifButton(){
 	// Appends the gifOption content into the id gifOptions.
 	$("#gifOptions").append(gifOption);
 
-	console.log($("#buttonContent").val() + " was added to the list.");
+	console.log("This is gifChoices array: " + gifChoices);
+	console.log(userButtonInput + " was added to the list.");
 } // End of the addGifButton function.
 
 // Set the variable i equal to 3 due to the array on line 10 and the html page containing 3 initial values.
@@ -42,8 +48,14 @@ $("#addButton").on("click", function(){
     	// If the above if statement is not true.
     	// Check if the user input is equal to any of the choices within the gifChoices array on line 10.
     	// If the user input ='s, then console log that the user input was already added.
-    	if (gifChoices.indexOf($("#buttonContent").val().trim().toLowerCase()) != -1){
-    		console.log($("#buttonContent").val() + " was used already added.");
+    	// Everything between the /'s will be a regular expression. \b Indicates the beginning to the end of the string. \d = Numeric
+    	// At the end the g stands for global match. Which will focus the entire string.
+    	if (gifChoices.indexOf($("#buttonContent").val().trim().toLowerCase().replace(/\b[a-z]/g, function(letter) {
+    		return letter.toUpperCase();
+    	})) != -1){
+    		console.log($("#buttonContent").val().trim().toLowerCase().replace(/\b[a-z]/g, function(letter) {
+    			return letter.toUpperCase();
+    		}) + " was used already added.");
     	}else{
     		// Else call the function addGifButton located on line 13.
 			addGifButton();
@@ -61,11 +73,13 @@ $("#buttonContent").keypress(function(event) {
     	// If the above if statement is not true and the user presses the enter key.
     	// Check if the user input is equal to any of the choices within the gifChoices array on line 10.
     	// If the user input ='s, then console log that the user input was already added.
-    	if (gifChoices.indexOf($("#buttonContent").val().trim().toLowerCase()) != -1){
-    		// Line 66/70 prevents the page from resetting and kepts the user input text as well.
+    	if (gifChoices.indexOf($("#buttonContent").val().trim().toLowerCase().replace(/\b[a-z]/g, function(letter) {
+    		return letter.toUpperCase();
+    	})) != -1){
+    		// Line 78/82 prevents the page from resetting and kepts the user input text as well.
 	        event.preventDefault();
     	}else{
-    		// If the above if statement on line 64 is not true.
+    		// If the above if statement on line 76 is not true.
     		// Call the addGifButton function located on line 13.
 	        event.preventDefault();
 	        addGifButton();
@@ -98,13 +112,9 @@ searchButton.on("click", function(){
 			// Set the variable gifDiv equal a new div and add a new class called gifContentBox.
 			var gifDiv = $("<div>")
 				.addClass("gifContentBox");
-			// Set the variable gifDiv equal a new div and add a new class called coverBox.
-			var gifCoverBox = $("<div>")
-				.addClass("coverBox");
 			// Set the variable gifImageContainer equal to a div and add a new class called imageContainer.
 			var gifImageContainer = $("<div>")
 				.addClass("imageContainer");
-
 			// Set the variable gifImage equal a new img.			
 			var gifImage = $("<img>")
 				// Adds an attr src equal to the current results[j]. Which will provide a still gif.
@@ -115,9 +125,8 @@ searchButton.on("click", function(){
 				.data("still", results[j].images.fixed_height_still.url)
 				// Adds an attr data-state equal to still which will change to either animated or still upon click.
 				.attr("data-state", "still");
-			// Appends both the gifCoverBox and gifImageContainer into gifDiv located on line 99.
-			// Also appends both the gifImage and gifRating into the gifIMageContainer div located on line 105.
-			gifDiv.append(gifCoverBox);
+			// Appends the gifImageContainer into gifDiv located on line 113.
+			// Also appends both the gifImage and gifRating into the gifImageContainer div located on line 116.
 			gifImageContainer.append(gifImage);
 			gifImageContainer.append(gifRating);
 			gifDiv.append(gifImageContainer);

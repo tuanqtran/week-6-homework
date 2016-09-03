@@ -217,31 +217,6 @@ body{
 
 /*
 ================================================
-  Provides a opacity black cover box over each
-     image which is later hovered to reveal
-           the normal gif coloring.
-================================================
-*/
-.coverBox{
-	background-color: black;
-	opacity: .4;
-	-moz-transition: all .125s;
-	-webkit-transition: all .125s;
-	transition: all .125s;
-	width: 275px;
-	height: 275px;
-    margin: auto;
-    display: block;
-	position: absolute;
-}
-
-.coverBox:hover{
-	-webkit-transform: scale(0);
-	opacity: 0;
-}
-
-/*
-================================================
        Centered the gif boxed, provided a
    orange glow, and given a dashed line within
               the box container.
@@ -284,6 +259,7 @@ body{
     margin-top: 12.5px;
     display: block;	
     position: relative;
+    opacity: .5;
 }
 
 /*
@@ -297,7 +273,8 @@ body{
 	-webkit-transform: scale(1.5);
 	-webkit-box-shadow:0px 0px 30px white;
 	position: relative;
-	z-index: 10;
+	z-index: 20;
+	opacity: 1;
 }
 
 /*
